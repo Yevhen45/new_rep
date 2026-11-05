@@ -129,10 +129,7 @@
 // }
 // btn.addEventListener('click',click)
 
-function humanChoice() {
-    let text = prompt('Напиши один з варіантів: камінь, ножниці чи папір');
-    return text;
-}
+
 function computerChoice() {
     let choice = Math.random();
     if (choice < 0.34) {
@@ -146,12 +143,39 @@ function computerChoice() {
 function playGame(hmn, cmp) {
     let hmns = hmn.toLowerCase()
     if (hmns === cmp) {
-        console.log('Нічий , вибір так самий')
+     block.textContent = `Нічия! Ви обидва обрали ${hmns}`;
     } else if
         ((hmns === 'камінь' && cmp === 'ножниці') ||
         (hmns === 'папір' && cmp === 'камінь') ||
-        (hmns === 'ножниці' && cmp === 'папір')) {
-        console.log(`ви перемогли, ${hmn} сильніше за ${cmp}`)
+        (hmns === 'ножниці' && cmp === 'папір')
+    ) {
+       block.textContent =`Ти переміг ${hmns} перемагає ${cmp}`;
+
+    } else{
+        block.textContent = `Комп'ютер переміг! ${cmp} перемагає ${hmn}`;
     }
 }
-playGame(humanChoice(), computerChoice())
+
+
+let btnK = document.querySelector('.btnK');
+let btnN = document.querySelector('.btnN');
+let btnP = document.querySelector('.btnP');
+let block = document.querySelector('.block');
+
+btnK.addEventListener('click', function(){
+    let humanChoice = 'камінь';
+    let computerChce = computerChoice();
+    playGame(humanChoice, computerChce) 
+});
+
+btnN.addEventListener('click', function(){
+    let humanChoice = 'ножниці';
+    let computerChce = computerChoice();
+    playGame(humanChoice, computerChce);
+});
+
+btnP.addEventListener('click', function(){
+    let humanChoice = 'папір';
+    let computerChce = computerChoice();
+    playGame(humanChoice, computerChce);
+});
