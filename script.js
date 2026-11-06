@@ -155,3 +155,4 @@ function playGame(hmn, cmp) {
     }
 }
 playGame(humanChoice(), computerChoice())
+console.log('hello');
