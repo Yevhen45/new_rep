@@ -1,3 +1,7 @@
 .green{
 background-color: greenyellow;}
 
+button{
+padding: 10px;
+border: 2px solid #000;
+}
